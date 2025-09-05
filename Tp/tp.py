@@ -1,13 +1,13 @@
-#TP Emilio Fernandez, Benjamin Fernandez, Lautaro De Santis y Federico Tambuerelli
+#TP Lautaro De Santis 
 inventario = []
 
 while True:
     
-    print("\n--- HABLOMOS DE VIDEOJUEGOS TIENDA ---")
-    print("1. Registrar nuevo juego")
-    print("2. Mostrar todos los juegos")
-    print("3. Buscar juego por nombre")
-    print("4. Cambiar precio del juego")
+    print("\n--- ROBERTO, LA VENTA DE PELICULAS. ---")
+    print("1. Registrar nueva pelicula")
+    print("2. Mostrar todas las peliculas")
+    print("3. Buscar pelicula por nombre")
+    print("4. Cambiar precio de la pelicula")
     print("5. Reponer stock")
     print("6. Registrar nuevas reseñas")
     print("7. Registrar nueva compra")
@@ -20,7 +20,7 @@ while True:
 
     match opcion:
         case "1":
-            nombrePro = input("Nombre del juego: ")
+            nombrePro = input("Nombre de la pelicula: ")
             try:
                 precio = float(input("Precio: "))
                 stock =  int(input("Stock: "))
@@ -32,174 +32,174 @@ while True:
             if precio <= 0 or stock <= 0 or valoracion > 5 or valoracion < 1:
                 print("Datos inválidos. Intenta de nuevo.")
             else:
-                nuevo_juego = {
-                    "juego": nombrePro,
+                nuevo_pelicula = {
+                    "pelicula": nombrePro,
                     "precio": precio,
                     "stock": stock,
                     "valoracion": valoracion
                 }
-                inventario.append(nuevo_juego)
-                print(f"juego {nombrePro} registrado con éxito.")
+                inventario.append(nuevo_pelicula)
+                print(f"pelicula {nombrePro} registrado con éxito.")
 
         case "2":
             if not inventario:
-                print("No hay juegos registrados aún.")
+                print("No hay peliculas registrados aún.")
             else:
-                print("\njuegos registrados:")
+                print("\npeliculas registrdadas:")
                 print("-------------------------")
-                for i, juego in enumerate(inventario, 1):
-                    print(f"{i}. Juego: {juego['juego']}")
-                    print(f"   Precio: ${juego['precio']}")
-                    print(f"   Stock: {juego['stock']}")
-                    print(f"   Valoracion: {juego['valoracion']}★/5")
+                for i, pelicula in enumerate(inventario, 1):
+                    print(f"{i}. Juego: {pelicula['pelicula']}")
+                    print(f"   Precio: ${pelicula['precio']}")
+                    print(f"   Stock: {pelicula['stock']}")
+                    print(f"   Valoracion: {pelicula['valoracion']}★/5")
                     print("-------------------------")
 
         case "3":
             if not inventario:
-                print("No hay juegos registrados.")
+                print("No hay peliculas registradas.")
             else:
-                buscar_pro = input("Escribe el nombre del juego que quieras buscar: ")
+                buscar_pro = input("Escribe el nombre de la pelicula que quieras buscar: ")
                 
-                for juego in inventario:
-                    if juego['juego'] == buscar_pro:
+                for pelicula in inventario:
+                    if pelicula['pelicula'] == buscar_pro:
                         print("-------------------------")
-                        print(f"   Juego: {juego['juego']}")
-                        print(f"   Precio: ${juego['precio']}")
-                        print(f"   Stock: {juego['stock']}")
-                        print(f"   Valoracion: {juego['valoracion']}★/5")
+                        print(f"   Pelicula: {pelicula['pelicula']}")
+                        print(f"   Precio: ${pelicula['precio']}")
+                        print(f"   Stock: {pelicula['stock']}")
+                        print(f"   Valoracion: {pelicula['valoracion']}★/5")
                         print("-------------------------")
                         encontrado = True
                 
                 if encontrado == False:
-                    print("No se encontro ese juego")
+                    print("No se encontro esa pelicula")
                     
         case "4":
             if not inventario:
-                print("No hay juegos registrados.")
+                print("No hay peliculas registradas.")
             else:
                 
-                buscar_pro = input("Escribe el nombre del juego al que quieras cambiar el precio: ")
+                buscar_pro = input("Escribe el nombre de la pelicula a la que quieras cambiar el precio: ")
                 
-                for juego in inventario:
-                    if juego['juego'] == buscar_pro:
+                for pelicula in inventario:
+                    if pelicula['pelicula'] == buscar_pro:
                         print("-------------------------")
-                        print(f"   Juego: {juego['juego']}")
-                        print(f"   Precio: ${juego['precio']}")
-                        print(f"   Stock: {juego['stock']}")
-                        print(f"   Valoracion: {juego['valoracion']}★/5")
+                        print(f"   Pelicula: {pelicula['pelicula']}")
+                        print(f"   Precio: ${pelicula['precio']}")
+                        print(f"   Stock: {pelicula['stock']}")
+                        print(f"   Valoracion: {pelicula['valoracion']}★/5")
                         print("-------------------------")
                         nuevo_precio = int(input("Cual es el nuevo precio? "))
                         if nuevo_precio <= 0:
                             print("Datos inválidos. Intenta de nuevo.")
                         else:
-                            juego['precio'] = nuevo_precio
+                            pelicula['precio'] = nuevo_precio
                             print("Nuevo precio: ")
-                            print(f"   Precio: {juego['precio']}")
+                            print(f"   Precio: {pelicula['precio']}")
                         encontrado = True
                         
                 if encontrado == False:
-                    print("No se encontro ese juego")
+                    print("No se encontro esa pelicula")
 
         case "5":
             if not inventario:
-                print("No hay juegos registrados.")
+                print("No hay peliculas registradas.")
             else:
                 
-                buscar_pro = input("Escribe el nombre del juego al que quieras agregar stcok: ")
+                buscar_pro = input("Escribe el nombre de la pelicula al que quieras agregar stcok: ")
                 
-                for juego in inventario:
-                    if juego['juego'] == buscar_pro:
+                for pelicula in inventario:
+                    if pelicula['pelicula'] == buscar_pro:
                         print("-------------------------")
-                        print(f"   Juego: {juego['juego']}")
-                        print(f"   Precio: ${juego['precio']}")
-                        print(f"   Stock: {juego['stock']}")
-                        print(f"   Valoracion: {juego['valoracion']}★/5")
+                        print(f"   Pelicula: {pelicula['pelicula']}")
+                        print(f"   Precio: ${pelicula['precio']}")
+                        print(f"   Stock: {pelicula['stock']}")
+                        print(f"   Valoracion: {pelicula['valoracion']}★/5")
                         print("-------------------------")
                         nuevo_stock = int(input("Cuanto stock deséas agregar "))
                         if nuevo_stock <= 0:
                             print("Datos inválidos. Intenta de nuevo.")
                         else:
-                            juego['stock'] = juego['stock'] + nuevo_stock
+                            pelicula['stock'] = pelicula['stock'] + nuevo_stock
                             print("Nuevo stock: ")
-                            print(f"   Stock: {juego['stock']}")
+                            print(f"   Stock: {pelicula['stock']}")
                         encontrado = True
                         
                 if encontrado == False:
-                    print("No se encontro ese juego")
+                    print("No se encontro esa pelicula")
             
         case "6":
-            for juego in inventario:
-                    if juego['juego'] == buscar_pro:
+            for pelicula in inventario:
+                    if pelicula['pelicula'] == buscar_pro:
                         print("-------------------------")
-                        print(f"   Juego: {juego['juego']}")
-                        print(f"   Precio: ${juego['precio']}")
-                        print(f"   Stock: {juego['stock']}")
-                        print(f"   Valoracion: {juego['valoracion']}★/5")
+                        print(f"   Pelicula: {pelicula['pelicula']}")
+                        print(f"   Precio: ${pelicula['precio']}")
+                        print(f"   Stock: {pelicula['stock']}")
+                        print(f"   Valoracion: {pelicula['valoracion']}★/5")
                         print("-------------------------")
                         nueva_valoracion = int(input("Cual es la nueva valoracion? "))
                         if nueva_valoracion <= 0 or nueva_valoracion > 5:
                             print("Datos inválidos. Intenta de nuevo.")
                         else:
-                            juego['valoracion'] = nueva_valoracion
+                            pelicula['valoracion'] = nueva_valoracion
                             print("Nueva valoracion: ")
-                            print(f"   Valoracion: {juego['valoracion']}★/5")
+                            print(f"   Valoracion: {pelicula['valoracion']}★/5")
                         encontrado = True
                         
             if encontrado == False:
-                print("No se encontro ese juego")
+                print("No se encontro esa pelicula")
                         
         case "7":
             if not inventario:
-                print("No hay juegos registrados.")
+                print("No hay peliculas registradas.")
             else:
-                buscar_pro = input("Escribe el nombre del juego al que quieras registrar compra: ")
+                buscar_pro = input("Escribe el nombre de la pelicula a la que quieras registrar compra: ")
                 
-                for juego in inventario:
-                    if juego['juego'] == buscar_pro:
+                for pelicula in inventario:
+                    if pelicula['pelicula'] == buscar_pro:
                         print("-------------------------")
-                        print(f"   Juego: {juego['juego']}")
-                        print(f"   Precio: ${juego['precio']}")
-                        print(f"   Stock: {juego['stock']}")
-                        print(f"   Valoracion: {juego['valoracion']}★/5")
+                        print(f"   Pelicula: {pelicula['pelicula']}")
+                        print(f"   Precio: ${pelicula['precio']}")
+                        print(f"   Stock: {pelicula['stock']}")
+                        print(f"   Valoracion: {pelicula['valoracion']}★/5")
                         print("-------------------------")
                         nueva_compra = int(input("Cuanto stock quieres registrar como comprado "))
                         if nueva_compra <= 0:
                             print("Datos inválidos. Intenta de nuevo.")
                         else:
-                            if nueva_compra > juego['stock']:
+                            if nueva_compra > pelicula['stock']:
                                 print("no tienes suficiente stock para realizar esa venta")
                             
                             else:
-                                juego['stock'] = juego['stock'] - nueva_compra
-                                if juego['stock'] == 0:
-                                    print(f"Te has quedado sin stock de {juego['juego']}")
-                                    inventario.remove(juego)
+                                pelicula['stock'] = pelicula['stock'] - nueva_compra
+                                if pelicula['stock'] == 0:
+                                    print(f"Te has quedado sin stock de {pelicula['pelicula']}")
+                                    inventario.remove(pelicula)
                                 
                                 else:
                                     print("Nuevo stock: ")
-                                    print(f"   Stock: {juego['stock']}")
+                                    print(f"   Stock: {pelicula['stock']}")
                         encontrado = True
                         
                 if encontrado == False:
-                    print("No se encontro ese juego")
+                    print("No se encontro esa pelicula")
                     
         case "8":
             if not inventario:
-                print("No hay juegos registrados.")
+                print("No hay peliculas registradas.")
             else:
-                buscar_pro = input("Escribe el nombre del juego al que quieras borrar del inventario: ")
+                buscar_pro = input("Escribe el nombre de la pelicula a la que quieras borrar del inventario: ")
                 
-                for juego in inventario:
-                    if juego['juego'] == buscar_pro:
-                        inventario.remove(juego)
+                for pelicula in inventario:
+                    if pelicula['pelicula'] == buscar_pro:
+                        inventario.remove(pelicula)
                         encontrado = True
                         
                 if encontrado == False:
-                    print("No se encontro ese juego")
+                    print("No se encontro ese pelicula")
     
         case "9":
             print("Saliendo del programa...")
             break
 
         case _:
-            print("Opción no válida. Intenta otra vez.")
+            print("Opción no válida. Intenta otra vez.")1
